@@ -1,21 +1,23 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta charset="utf-8">
+    <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title></title>
     <style>
-      * {
-        margin: 0; padding: 0; box-sizing: border-box;
+      /* General styles */
+      * {box-sizing: border-box; margin: 0; padding: 0;}
+      .busy-loader {
+        z-index: 9999;
+        margin: auto;
+        margin-top: 33vh;
       }
+      /* Loader 1 */
       @keyframes rotate {
         from {transform: rotate(0deg);}
         to {transform: rotate(360deg);}
       }
-      #busy-loader {
-        z-index: 9999;
-        margin: auto;
-        margin-top: 33vh;
+      #busy-loader-one {
         width: 150px; height: 150px;
         background-color: transparent;
         border-width: 30px;
@@ -24,12 +26,61 @@
         border-radius: 50%;
         animation: rotate 1s infinite linear;
       }
+      /* Loader 2 */
+      #busy-loader-two {
+        width: 200px; height: 200px;
+      }
+      .box {
+        width: 50px; height: 50px;
+        margin: 25px;
+        display: inline-block;
+        position: absolute;
+      }
+      @keyframes box-one {
+        0% {margin: 25px 25px 25px 25px; background-color: #D0264F;}
+        25% {margin: 25px 25px 25px 100px; background-color: #5550BA;}
+        50% {margin: 100px 25px 25px 100px; background-color: #31B4D1;}
+        75% {margin: 100px 25px 25px 25px; background-color: #A729AA;}
+        100% {margin: 25px 25px 25px 25px; background-color: #D0264F;}
+      }
+      @keyframes box-two {
+        0% {margin: 25px 25px 25px 100px; background-color: #A729AA;}
+        25% {margin: 100px 25px 25px 100px; background-color: #D0264F;}
+        50% {margin: 100px 25px 25px 25px; background-color: #5550BA;}
+        75% {margin: 25px 25px 25px 25px; background-color: #31B4D1;}
+        100% {margin: 25px 25px 25px 100px; background-color: #A729AA;}
+      }
+      @keyframes box-three {
+        0% {margin: 100px 25px 25px 25px; background-color: #31B4D1;}
+        25% {margin: 25px 25px 25px 25px; background-color: #A729AA;}
+        50% {margin: 25px 25px 25px 100px; background-color: #D0264F;}
+        75% {margin: 100px 25px 25px 100px; background-color: #5550BA;}
+        100% {margin: 100px 25px 25px 25px; background-color: #31B4D1;}
+      }
+      @keyframes box-four {
+        0% {margin: 100px 25px 25px 100px; background-color: #5550BA;}
+        25% {margin: 100px 25px 25px 25px; background-color: #31B4D1;}
+        50% {margin: 25px 25px 25px 25px; background-color: #A729AA;}
+        75% {margin: 25px 25px 25px 100px; background-color: #D0264F;}
+        100% {margin: 100px 25px 25px 100px; background-color: #5550BA;}
+      }
+      #one {animation: box-one 1.5s infinite ease;}
+      #two {animation: box-two 1.5s infinite ease;}
+      #three {animation: box-three 1.5s infinite ease;}
+      #four {animation: box-four 1.5s infinite ease;}
+      /* Loader 3 */
     </style>
     <script>
-      window.onload = function(){ document.getElementById("busy-loader").style.display = "none" }
+      // window.onload = function(){ document.getElementById("busy-loader").style.display = "none" }
     </script>
   </head>
   <body>
-    <div id="busy-loader"></div>
+    <div id="busy-loader-one" class="busy-loader" style="display:none;"></div>
+    <div id="busy-loader-two" class="busy-loader" style="display:none;">
+      <div id="one" class="box"></div>
+      <div id="two" class="box"></div>
+      <div id="three" class="box"></div>
+      <div id="four" class="box"></div>
+    </div>
   </body>
 </html>
