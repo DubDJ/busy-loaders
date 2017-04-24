@@ -69,6 +69,26 @@
       #three {animation: box-three 1.5s infinite ease;}
       #four {animation: box-four 1.5s infinite ease;}
       /* Loader 3 */
+      #busy-loader-three {
+        width: 200px; height: auto;
+        text-align: center;
+      }
+      .circle {
+        opacity: 0;
+        width: 30px; height: 30px;
+        display: inline-block;
+        margin: 5px;
+        background-color: rgba(136,136,136,.5);
+        border-radius: 50%;
+      }
+      @keyframes load {
+        0% {opacity: 0;}
+        50% {opacity: 1}
+        100% {opacity: 0;}
+      }
+      #circle-one {animation: load 2s linear 1s infinite;}
+      #circle-two {animation: load 2s linear 2s infinite;}
+      #circle-three {animation: load 2s linear 3s infinite;}
     </style>
     <script>
       // window.onload = function(){ document.getElementById("busy-loader").style.display = "none" }
@@ -81,6 +101,11 @@
       <div id="two" class="box"></div>
       <div id="three" class="box"></div>
       <div id="four" class="box"></div>
+    </div>
+    <div id="busy-loader-three" class="busy-loader" style="display:none;">
+      <div id="circle-one" class="circle"></div>
+      <div id="circle-two" class="circle"></div>
+      <div id="circle-three" class="circle"></div>
     </div>
   </body>
 </html>
