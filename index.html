@@ -6,11 +6,11 @@
     <title></title>
     <style>
       /* General styles */
-      * {box-sizing: border-box; margin: 0; padding: 0;}
+      * {box-sizing: border-box;}
       .busy-loader {
         z-index: 9999;
         margin: auto;
-        margin-top: 33vh;
+        margin-top: 6vh;
       }
       /* Loader 1 */
       @keyframes rotate {
@@ -28,12 +28,12 @@
       }
       /* Loader 2 */
       #busy-loader-two {
-        width: 200px; height: 200px;
+        width: 175px; height: 175px;
+
       }
       .box {
         width: 50px; height: 50px;
         margin: 25px;
-        display: inline-block;
         position: absolute;
       }
       @keyframes box-one {
@@ -78,34 +78,81 @@
         width: 30px; height: 30px;
         display: inline-block;
         margin: 5px;
-        background-color: rgba(136,136,136,.5);
         border-radius: 50%;
       }
-      @keyframes load {
+      @keyframes dots-load {
         0% {opacity: 0;}
         50% {opacity: 1}
         100% {opacity: 0;}
       }
-      #circle-one {animation: load 2s linear 1s infinite;}
-      #circle-two {animation: load 2s linear 2s infinite;}
-      #circle-three {animation: load 2s linear 3s infinite;}
+      #circle-one {
+        animation: dots-load 4s linear 1s infinite;
+        background-color: #5550BA;
+      }
+      #circle-two {
+        animation: dots-load 4s linear 2s infinite;
+        background-color: #31B4D1;
+      }
+      #circle-three {
+        animation: dots-load 4s linear 3s infinite;
+        background-color: #A729AA;
+      }
+      #circle-four {
+        animation: dots-load 4s linear 4s infinite;
+        background-color: #D0264F;
+      }
+      /* Loader 4 */
+      #busy-loader-four {
+        width: 100px; height: 100px;
+        border: 13px dashed;
+        border-color: #5550BA #31B4D1 #A729AA #D0264F;
+        border-radius: 50%;
+        text-align: center;
+        animation: rotate 0.8s infinite ease;
+      }
+      @keyframes dot-color {
+        0% {background-color: #5550BA;}
+        25% {background-color: #31B4D1;}
+        50% {background-color: #A729AA;}
+        75% {background-color: #D0264F;}
+        100% {background-color: #5550BA;}
+      }
+      #dot {
+        opacity: 1;
+        transform: scale(1.5);
+        margin: 22px;
+        animation: dot-color 3.2s ease infinite;
+      }
+      /* Loader 4 */
+      #busy-loader-five {
+        width: 100px; height: 100px;
+        border: 13px dashed;
+        border-color: #5550BA #31B4D1 #A729AA #D0264F;
+        border-radius: 50%;
+        animation: rotate 1s infinite ease-in-out;
+      }
     </style>
     <script>
       // window.onload = function(){ document.getElementById("busy-loader").style.display = "none" }
     </script>
   </head>
   <body>
-    <div id="busy-loader-one" class="busy-loader" style="display:none;"></div>
-    <div id="busy-loader-two" class="busy-loader" style="display:none;">
+    <div id="busy-loader-one" class="busy-loader"></div>
+    <div id="busy-loader-two" class="busy-loader">
       <div id="one" class="box"></div>
       <div id="two" class="box"></div>
       <div id="three" class="box"></div>
       <div id="four" class="box"></div>
     </div>
-    <div id="busy-loader-three" class="busy-loader" style="display:none;">
+    <div id="busy-loader-three" class="busy-loader">
       <div id="circle-one" class="circle"></div>
       <div id="circle-two" class="circle"></div>
       <div id="circle-three" class="circle"></div>
+      <div id="circle-four" class="circle"></div>
     </div>
+    <div id="busy-loader-four" class="busy-loader">
+      <div id="dot" class="circle"></div>
+    </div>
+    <div id="busy-loader-five" class="busy-loader"></div>
   </body>
 </html>
