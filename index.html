@@ -5,15 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title></title>
     <style>
-      /* General styles */
+      /* General page styles */
       * {box-sizing: border-box; margin: 0;}
+
+      /* Sets full screen background to hide page content on load */
       #busy-loader-background {
         position: fixed;
         top: 0;
         width: 100vw; height: 100vh;
         z-index: 999;
         background-color: rgba(255,255,255,.9);
+        overflow: scroll;
       }
+
+      /* General styles for loaders */
       .busy-loader {
         z-index: 9999;
         margin: auto;
@@ -118,6 +123,7 @@
         border-color: #5550BA #31B4D1 #A729AA #D0264F;
         border-radius: 50%;
         text-align: center;
+        /* Uses keyframes from loader 1 */
         animation: rotate 0.8s infinite ease;
       }
       @keyframes dot-color {
@@ -140,11 +146,13 @@
         border: 13px dashed;
         border-color: #5550BA #31B4D1 #A729AA #D0264F;
         border-radius: 50%;
+        /* Uses keyframes from loader 1 */
         animation: rotate 1s infinite ease-in-out;
       }
     </style>
     <script>
-      // window.onload = function(){ document.getElementById("busy-loader-").style.display = "none" }
+      // Hides loader once page has finished loading. Remove comment for live version.
+      // window.onload = function(){ document.getElementById("busy-loader-background").style.display = "none" }
     </script>
   </head>
   <body>
